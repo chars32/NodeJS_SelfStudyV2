@@ -14,5 +14,8 @@ console.log(user.username);
 let result = notes.addNote()
 console.log(result);
 
+let add = notes.addition(3, 10)
+console.log(`Results: ${add}`);
+
 // appendfile creates a file, asking for two variables; the first being the name and the second bering the content
-// fs.appendFile('greeting.txt', `Hello ${user.username}! You are not ${notes.age}`)
+fs.appendFile('greeting.txt', `Hello ${user.username}! You are not ${notes.age}`)
