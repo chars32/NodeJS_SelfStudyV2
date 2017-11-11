@@ -1,5 +1,3 @@
-console.log('app starting..');
-
 const _ = require('lodash');
 const os = require('os');
 const fs = require('fs');
@@ -7,39 +5,40 @@ const production = require('./production');
 const yargs = require('yargs');
 const notes = require('./notes')
 
-// let arr = [1,2,3,2,2,2,3,3,31,1,1,1,3,45,5,672342,453]
-//
-// console.log(_.isString(true));
-// console.log(_.isString('hshshsh'));
-// console.log(arr);
-// console.log(_.uniq(arr));
 
-// let MJ = production.totalPoints(32292,5633)
-// let LBJ = production.totalPoints(29104, 7561)
-//
-// console.log(`Micheal's point total is: ${MJ}`);
-// console.log(`Lebron's point total is: ${LBJ}`);
-//
-// if (MJ > LBJ) {
-//   console.log(`Micheal has more points`);
-// }else {
-//   console.log(`Lebron has more points`);
-// }
+const titleOptions = {
+      describe: 'Title of a note',
+      demand: true, //makes sure that the variable is added by the user
+      alias: 't' //allows us to change command from the terminal
+    }
 
-const argv = yargs.argv
+const bodyOptions = {
+      describe: 'Body of a note',
+      demand: true,
+      alias: 'b'
+    }
+
+const argv = yargs
+    .command('add', 'Add a new note',{
+      title:titleOptions,
+      body:bodyOptions
+    })
+    .command('list', 'List of all notes')
+    .command('read', 'Read a note',{title: titleOptions})
+    .command('remove', 'Remove a note',{title: titleOptions})
+    .help() // allows for a help window to show in the terminal
+    .argv
+
 let command = argv._[0]
-console.log('Command:', command);
+// console.log('Command:', command);
 // console.log('Process', process.argv);
-console.log('Yargs', argv);
+// console.log('Yargs', argv);
 
 
 if (command === 'add') {
   let note = notes.addNote(argv.title, argv.body)
   if (note) {
-    console.log('Note Created');
     return notes.logNote(note)
-  }else {
-    console.log('Error: Title already added');
   }
 }else if (command === 'list'){
   let allNotes = notes.getAll()

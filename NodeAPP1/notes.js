@@ -1,4 +1,3 @@
-console.log('loading notes');
 const fs = require('fs');
 
 let fetchNotes= () => {
@@ -27,8 +26,11 @@ let addNote = (title, body) => {
 
   // this if statement will verify that there are no duplicates in the duplicateNotes array
   if (duplicateNotes.length === 0 ) {
+    console.log('Note Created');
     notes.push(note); // this adds the note value into the notes array
     saveNotes(notes)
+  }else {
+    console.log('Error: Title already added');
   }
 }
 
