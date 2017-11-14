@@ -1,0 +1,27 @@
+Node a runtime that uses the V8 engine.
+the v8 engine is an open source platform built with c++ that runs javascript outside of the browser
+
+the global keywords will show and gave us access to all of the global objects made available to us
+
+the process keywords will give us information on current node processes.
+
+process.exit(0) and cmd+c are ways of killing your node server
+
+Node works best when its built in a non blocking format. The main difference is that with a blocking set up, each function can't run until the previous function has run. Un blocking allows for the code to be run irregardless of each other line of code
+
+For parsing information between the different files in node, you can either write in manually or use a third party solution. The most common third party parsing module is yargs.
+
+When parsing information between data sets, the common
+
+Debugging is now easier in Node version 8 and higher as the debugging features are finalized from earlier prototypes. To start the built in debugger, the inspect keyword is placed after the node keyword.
+to specify the amount of lines, the 'list' keyword is used. To go to the next line, the 'n' key word is used or 'c' to go the end of the script.
+'repl' is similar to the chrome console where variables can be viewed and manipulated for testing.
+ the classic debugger keyword placed in the code can also be used as a carry over from other javascript frameworks
+alternatively, debugging can also be done through the chrome browser using the '--inspect-brk' command
+
+
+
+Google maps api to pull information about a certain location. Dark Sky API for grabbing weather API data.
+
+handlebars
+when using handlebars partials, nodemon server.js -e js,hbs
